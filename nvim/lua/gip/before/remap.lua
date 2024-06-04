@@ -1,0 +1,80 @@
+local Remap = require("gip.keymap")
+local nnoremap = Remap.nnoremap
+local vnoremap = Remap.vnoremap
+local inoremap = Remap.inoremap
+local xnoremap = Remap.xnoremap
+
+xnoremap("<leader>p", '"_dP')
+Remap.nmap("<leader>y", '"*y')
+
+nnoremap("j", "gj")
+nnoremap("gj", "j")
+vnoremap("gj", "j")
+vim.keymap.set("v", "j", "mode() ==# 'v' ? 'gj' : 'j'", { noremap = false, expr = true })
+
+nnoremap("k", "gk")
+nnoremap("gk", "k")
+vnoremap("gk", "k")
+vim.keymap.set("v", "k", "mode() ==# 'v' ? 'gk' : 'k'", { noremap = false, expr = true })
+
+nnoremap("0", "g0")
+nnoremap("g0", "0")
+
+nnoremap("<leader>c", ":q<CR>")
+nnoremap("<leader>gs", ":Git<CR>")
+
+-- Move line up or down
+nnoremap("<C-k>", ":m -2<CR>==")
+nnoremap("<C-j>", ":m +1<CR>==")
+inoremap("<C-j>", "<Esc>:m +1<CR>==gi")
+inoremap("<C-k>", "<Esc>:m -2<CR>==gi")
+vnoremap("<C-j>", ":m '>+1<CR>gv=gv")
+vnoremap("<C-k>", ":m '<-2<CR>gv=gv")
+
+-- Split stuff
+nnoremap("<C-h>", "<C-w>h")
+nnoremap("<C-l>", "<C-w>l")
+-- nnoremap("<C-j>", "<C-w>j")
+-- nnoremap("<C-k>", "<C-w>k")
+nnoremap("<leader>v", "<C-w>v")
+nnoremap("<leader>s", ":horizontal split<CR>")
+
+-- This is for neoorg and should be removed after neovim 1.0
+vim.api.nvim_set_hl(0, "@variable.parameter", { link = "@parameter" })
+vim.api.nvim_set_hl(0, "@variable.member", { link = "@field" })
+vim.api.nvim_set_hl(0, "@module", { link = "@namespace" })
+vim.api.nvim_set_hl(0, "@number.float", { link = "@float" })
+vim.api.nvim_set_hl(0, "@string.special.symbol", { link = "@symbol" })
+vim.api.nvim_set_hl(0, "@string.regexp", { link = "@string.regex" })
+vim.api.nvim_set_hl(0, "@function.method", { link = "@method" })
+vim.api.nvim_set_hl(0, "@function.method.call", { link = "@method.call" })
+vim.api.nvim_set_hl(0, "@keyword.import", { link = "@include" })
+vim.api.nvim_set_hl(0, "@keyword.storage", { link = "@storageclass" })
+vim.api.nvim_set_hl(0, "@keyword.repeat", { link = "@repeat" })
+vim.api.nvim_set_hl(0, "@keyword.debug", { link = "@debug" })
+vim.api.nvim_set_hl(0, "@keyword.exception", { link = "@exception" })
+vim.api.nvim_set_hl(0, "@keyword.conditional", { link = "@conditional" })
+vim.api.nvim_set_hl(0, "@keyword.conditional.ternary", { link = "@conditional.ternary" })
+vim.api.nvim_set_hl(0, "@keyword.directive", { link = "@preproc" })
+vim.api.nvim_set_hl(0, "@keyword.directive.define", { link = "@define" })
+vim.api.nvim_set_hl(0, "@markup.strong", { link = "@text.strong" })
+vim.api.nvim_set_hl(0, "@markup.italic", { link = "@text.emphasis" })
+vim.api.nvim_set_hl(0, "@markup.strikethrough", { link = "@text.strike" })
+vim.api.nvim_set_hl(0, "@markup.underline", { link = "@text.underline" })
+vim.api.nvim_set_hl(0, "@markup.heading", { link = "@text.title" })
+vim.api.nvim_set_hl(0, "@markup.raw", { link = "@text.literal" })
+vim.api.nvim_set_hl(0, "@markup.raw.block", { link = "@text.literal.block" })
+vim.api.nvim_set_hl(0, "@markup.quote", { link = "@text.quote" })
+vim.api.nvim_set_hl(0, "@markup.math", { link = "@text.math" })
+vim.api.nvim_set_hl(0, "@markup.environment", { link = "@text.environment" })
+vim.api.nvim_set_hl(0, "@markup.environment.name", { link = "@text.environment.name" })
+vim.api.nvim_set_hl(0, "@markup.link", { link = "@text.reference" })
+vim.api.nvim_set_hl(0, "@markup.link.url", { link = "@text.uri" })
+vim.api.nvim_set_hl(0, "@markup.link.label", { link = "@string.special" })
+vim.api.nvim_set_hl(0, "@markup.list", { link = "@punctuation.special" })
+vim.api.nvim_set_hl(0, "@comment.error", { link = "@text.danger" })
+vim.api.nvim_set_hl(0, "@comment.warning", { link = "@text.warning" })
+vim.api.nvim_set_hl(0, "@comment.note", { link = "@text.note" })
+vim.api.nvim_set_hl(0, "@comment.todo", { link = "@text.todo" })
+vim.api.nvim_set_hl(0, "@diff.plus", { link = "@text.diff.add" })
+vim.api.nvim_set_hl(0, "@diff.minus", { link = "@text.diff.delete" })
