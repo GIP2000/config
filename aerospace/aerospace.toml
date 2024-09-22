@@ -189,6 +189,10 @@ run = "move-node-to-workspace d"
 if.app-id = 'com.apple.MobileSMS'
 run = "move-node-to-workspace d"
 
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = "move-node-to-workspace r"
+
 [workspace-to-monitor-force-assignment]
 a = 'main'
 s = 'LG'
